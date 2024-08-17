@@ -7,10 +7,10 @@ public class Login {
 
     WebDriver driver;
 
-    By Username = By.xpath("//input[@placeholder='Login']");
-    By Password = By.xpath("//input[@placeholder='Password']");
-    By LogIn = By.xpath("//input[@value='Log In']");
-    By UserTxt = By.xpath("//span[@id='user-name']");
+    By Username = By.id("ctl00_MainContent_username");
+    By Password = By.id("ctl00_MainContent_password");
+    By LogIn = By.id("ctl00_MainContent_login_button");
+
 
     public Login(WebDriver driver){
         this.driver = driver;
