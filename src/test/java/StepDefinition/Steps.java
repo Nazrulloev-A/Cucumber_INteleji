@@ -20,15 +20,24 @@ public class Steps {
 
     @Before
     public void setUp() {
+
+//       --- HEADLESS MODE ---
+//        WebDriverManager.chromedriver().setup();
+//
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless"); // Enable headless mode
+//        options.addArguments("--disable-gpu"); // Disable GPU acceleration (optional)
+//        options.addArguments("--window-size=1920,1080"); // Set a default window size (optional)
+//        driver = new ChromeDriver(options);
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+//       -- HEAD MODE ---
         WebDriverManager.chromedriver().setup();
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Enable headless mode
-        options.addArguments("--disable-gpu"); // Disable GPU acceleration (optional)
-        options.addArguments("--window-size=1920,1080"); // Set a default window size (optional)
-
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+
+//
     }
 
     @Given("user is on the login page")
