@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         publish = true,
         plugin ={"pretty","html:target/HtmlReports"},
-        tags = ""
+        tags = "@Log"
         //dryRun = true
 
 )
