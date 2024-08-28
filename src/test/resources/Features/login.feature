@@ -1,15 +1,13 @@
-Feature: feature to test login functionlity
-
-@Log
-  Scenario: Check login is successful with valid credentials
-    When  user enters username and password
-    And   clicks on login button
+Feature: Test login functionality
 
   @Log
-  Scenario: Check First and Second Order Name from the List
-    When  user enters username and password
-    And   clicks on login button
-    Given user should select first check box row
-    When  user should select second check bow row
-    And   clicks on Delete button
+  Scenario Outline: Check login is successful with valid credentials
+    Given user enters "<username>" and "<password>"
+    When  user clicks on the login button
+    Then  user should select the first checkbox row
+    And   user should select the second checkbox row
+    And   user clicks on the Delete button
 
+    Examples:
+      | username | password |
+      | Tester   | test     |

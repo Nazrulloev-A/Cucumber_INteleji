@@ -3,9 +3,7 @@ package Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -25,19 +23,16 @@ public class Driver {
             switch (browser) {
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    firefoxOptions.addArguments("--headless");
-                    driver = new FirefoxDriver(firefoxOptions);
+                    driver = new FirefoxDriver();
                     break;
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("--headless");
-                    driver = new ChromeDriver(chromeOptions);
+                    driver = new ChromeDriver();
+
                     break;
                 case "ie":
                     WebDriverManager.iedriver().setup();
-                    driver = new InternetExplorerDriver(); // IE does not support headless mode
+                    driver = new InternetExplorerDriver();
                     break;
             }
         }

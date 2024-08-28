@@ -4,6 +4,7 @@ import LoginPage.Login;
 import LoginPage.orderPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
@@ -14,30 +15,32 @@ public class Steps extends Utility.Driver {
 
    Login login = new Login();
    orderPage check = new orderPage();
-    @When("user enters username and password")
-    public void user_enters_username_and_password() {
-      login.Username.sendKeys("Tester");
-        login.Password.sendKeys("test");
+    @When("user enters {string} and {string}")
+    public void userEntersAnd(String user, String pass) {
+        login.Username.sendKeys(user);
+        login.Password.sendKeys(pass);
     }
 
-    @And("clicks on login button")
-    public void clicks_on_login_button() {
+   @When("user clicks on the login button")
+   public void userClicksOnTheLoginButton() {
        login.LoginBtn.click();
     }
-    @Given("user should select first check box row")
-    public void user_should_select_first_check_box_row() {
+   @Then("user should select the first checkbox row")
+   public void userShouldSelectTheFirstCheckboxRow() {
         check.selectFirstRow();
     }
 
-    @When("user should select second check bow row")
-    public void user_should_select_second_check_bow_row() {
+   @And("user should select the second checkbox row")
+   public void userShouldSelectTheSecondCheckboxRow() {
         check.selectSecondRow();
     }
 
-    @When("clicks on Delete button")
-    public void clicks_on_delete_button() {
+   @And("user clicks on the Delete button")
+   public void userClicksOnTheDeleteButton() {
+
         check.clickDeleteBtn();
     }
 
-
 }
+
+
